@@ -4,3 +4,4 @@ package-lock.json
 public
 .eslintrc.json
 next.config.js
+assets
