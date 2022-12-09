@@ -615,7 +615,7 @@ span.text-red {
   .hero-banner-image {
     transform: scale(0.8);
     top: 30%;
-    right: -6%;
+    right: 15%;
   }
   .footer-banner-container {
     height: 560px;
