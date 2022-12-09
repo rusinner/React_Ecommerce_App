@@ -622,8 +622,7 @@ span.text-red {
     margin-top: 80px;
   }
   .footer-banner-image {
-    width: 77%;
-    left: 30%;
+    transform: scale(0.8);
     top: 6%;
     height: 56%;
   }
