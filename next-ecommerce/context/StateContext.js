@@ -6,7 +6,7 @@ const Context = createContext();
 
 export const StateContext = ({ children }) => {
   const [showCart, setShowcart] = useState(false);
-  const [cartItems, setCartItems] = useState();
+  const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState();
   const [totalQuantities, setTotalQuantities] = useState();
   const [qty, setQty] = useState(1);
@@ -15,12 +15,25 @@ export const StateContext = ({ children }) => {
     const checkProductInCart = cartItems.find(
       (item) => item._id === product._id
     );
+    setTotalPrice(
+      (prevTotalPrice) => prevTotalPrice + product.price * quantity
+    );
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
 
     if (checkProductInCart) {
-      setTotalPrice(
-        (prevTotalPrice) => prevTotalPrice + product.price * quantity
-      );
+      const updatedCartItems = cartItems.map((cartProduct) => {
+        if (cartProduct._id === product._id)
+          return {
+            ...cartProduct,
+            quantity: cartProduct.quantity + quantity,
+          };
+      });
+      setCartItems(updatedCartItems);
+    } else {
+      product.quantity = quantity;
+      setCartItems([...cartItems, { ...product }]);
     }
+    toast.success(`${qty} ${product.name} added to the cart`);
   };
 
   const incQty = () => {
@@ -44,6 +57,7 @@ export const StateContext = ({ children }) => {
         qty,
         incQty,
         decQty,
+        onAdd,
       }}
     >
       {children}
