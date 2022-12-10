@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
+  //states
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -13,7 +14,7 @@ export const StateContext = ({ children }) => {
 
   let foundProduct;
   let index;
-
+  //add product to cart functionality
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find(
       (item) => item._id === product._id
@@ -39,6 +40,23 @@ export const StateContext = ({ children }) => {
     toast.success(`${qty} ${product.name} added to the cart`);
   };
 
+  //remove items from cart
+  const onRemove = (product) => {
+    foundProduct = cartItems.find((item) => item._id === product._id);
+    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+    //calculate the price
+    setTotalPrice(
+      (prevTotalPrice) =>
+        prevTotalPrice - foundProduct.price * foundProduct.quantity
+    );
+    //calculate the quantity in each product
+    setTotalQuantities(
+      (prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity
+    );
+    setCartItems(newCartItems);
+  };
+
+  //calculate quantity and price cosidering if an item already exists
   const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id);
     index = cartItems.findIndex((product) => product._id === id);
@@ -61,6 +79,7 @@ export const StateContext = ({ children }) => {
       }
     }
   };
+  //increase and decrease quantity
   const incQty = () => {
     setQty((prevQty) => prevQty + 1);
   };
@@ -71,7 +90,7 @@ export const StateContext = ({ children }) => {
       return prevQty - 1;
     });
   };
-
+  //everything needs to be used in our app prviding by context
   return (
     <Context.Provider
       value={{
@@ -85,6 +104,7 @@ export const StateContext = ({ children }) => {
         decQty,
         onAdd,
         toggleCartItemQuantity,
+        onRemove,
       }}
     >
       {children}
