@@ -10,7 +10,8 @@ export default async function handler(req, res) {
         submit_type: "pay",
         mode: "payment",
         payment_method_types: ["card"],
-        billing_adress_collection: "auto",
+        billing_address_collection: "auto",
+        // cancel_url: "https://localhost:3000",
         shipping_options: [
           { shipping_rate: "shr_1MDRrCDcgxGsGNrZvTiq8n61" },
           { shipping_rate: "shr_1MDRseDcgxGsGNrZJxfTwIV3" },
@@ -31,7 +32,7 @@ export default async function handler(req, res) {
                 name: item.name,
                 images: [newImage],
               },
-              unit_amount: item.price * 100,
+              unit_amount: Math.round(item.price * 100),
             },
             adjustable_quantity: {
               enabled: true,

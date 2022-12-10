@@ -32,6 +32,7 @@ const Cart = () => {
     const response = await fetch("/api/stripe", {
       method: "POST",
       headers: {
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(cartItems),
@@ -42,7 +43,7 @@ const Cart = () => {
     const data = await response.json();
     toast.loading("Redirecting...");
 
-    stripe.redirectToCheckout({ sessionId: data.sessionId });
+    stripe.redirectToCheckout({ sessionId: data.id });
   };
 
   return (
