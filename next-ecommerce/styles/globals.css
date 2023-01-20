@@ -166,9 +166,16 @@ span.text-red {
 .hero-banner-image {
   position: absolute;
   top: 0%;
-  right: 20%;
+  right: 7vw;
   width: 450px;
   height: 450px;
+}
+@media screen and (max-width: 568px) {
+  .hero-banner-image {
+    width: 30px !important;
+    height: 30px !important;
+    right: 2vw !important;
+  }
 }
 
 .desc {
@@ -244,8 +251,9 @@ span.text-red {
   position: absolute;
   /* top: -35%;
   left: 8%; */
-  top: -25%;
-  left: 25%;
+  top: -20%;
+  left: 27%;
+  width: 550px;
 }
 .banner-desc .right {
   line-height: 1.4;
@@ -623,8 +631,9 @@ span.text-red {
   }
   .footer-banner-image {
     transform: scale(0.8);
-    top: 6%;
-    height: 56%;
+    margin-top: 30px;
+    margin-left: -15px;
+    width: 300px !important;
   }
   .banner-desc .left h3 {
     font-weight: 900;
