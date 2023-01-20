@@ -170,13 +170,6 @@ span.text-red {
   width: 450px;
   height: 450px;
 }
-@media screen and (max-width: 568px) {
-  .hero-banner-image {
-    width: 30px !important;
-    height: 30px !important;
-    right: 2vw !important;
-  }
-}
 
 .desc {
   position: absolute;
@@ -623,7 +616,7 @@ span.text-red {
   .hero-banner-image {
     transform: scale(0.8);
     top: 30%;
-    right: 15%;
+    right: -13%;
   }
   .footer-banner-container {
     height: 560px;
