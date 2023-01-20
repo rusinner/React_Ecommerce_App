@@ -15,7 +15,7 @@ const Herobanner = ({ herobanner }) => {
           className="hero-banner-image"
         />
         <div>
-          <Link href={`/product/Samsung%20Galaxy%20Z%20Fold4`}>
+          <Link href={`/product/Samsung_Galaxy_Z_Fold4`}>
             <button type="button">{herobanner.buttonText}</button>
           </Link>
           <div className="desc">

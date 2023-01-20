@@ -30,7 +30,7 @@ const FooterBanner = ({
           <p>{smallText}</p>
           <h3>{midText}</h3>
           <p>{desc}</p>
-          <Link href={`/product/Samsung%20Galaxy%20Z%20Fold4`}>
+          <Link href={`/product/Samsung_Galaxy_Z_Fold4`}>
             <button type="button">{buttonText}</button>
           </Link>
         </div>
