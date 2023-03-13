@@ -1,13 +1,14 @@
 import React from "react";
 
 import { client } from "../lib/client";
-
-import { Product, FooterBanner, Herobanner } from "../components";
+import Product from "../components/Product";
+import FooterBanner from "../components/FooterBanner";
+import HeroBanner from "../components/HeroBanner";
 
 const Home = ({ products, bannerData }) => {
   return (
     <>
-      <Herobanner herobanner={bannerData.length && bannerData[0]} />
+      <HeroBanner herobanner={bannerData.length && bannerData[0]} />
 
       <div className="products-heading">
         <h2>Explore.Do what you can't.</h2>
