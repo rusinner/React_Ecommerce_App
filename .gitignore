@@ -1,9 +1,4 @@
 node_modules
-package.json
-package-lock.json
-public
 .eslintrc.json
 .eslintrc
-next.config.js
-assets
 .env
