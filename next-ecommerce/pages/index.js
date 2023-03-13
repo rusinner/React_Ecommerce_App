@@ -8,7 +8,7 @@ import HeroBanner from "../components/HeroBanner";
 const Home = ({ products, bannerData }) => {
   return (
     <>
-      <HeroBanner herobanner={bannerData.length && bannerData[0]} />
+      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
 
       <div className="products-heading">
         <h2>Explore.Do what you can't.</h2>
